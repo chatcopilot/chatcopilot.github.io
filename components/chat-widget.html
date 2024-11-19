@@ -1,0 +1,40 @@
+<!-- AI 对话框 -->
+<div class="chat-widget">
+    <button class="chat-toggle" id="chatToggle">
+        <div class="chat-toggle-content">
+            <i class="fas fa-robot"></i>
+            <span>AI助手</span>
+        </div>
+    </button>
+    
+    <div class="chat-container hidden" id="chatContainer">
+        <div class="chat-header">
+            <div class="chat-header-title">
+                <i class="fas fa-robot"></i>
+                <h3>AI助手</h3>
+            </div>
+            <div class="chat-header-actions">
+                <button class="expand-chat" id="expandChat" title="放大/缩小">
+                    <i class="fas fa-expand"></i>
+                </button>
+                <button class="close-chat" id="closeChat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <!-- 消息将通过JavaScript动态添加 -->
+        </div>
+        <div class="chat-input">
+            <textarea 
+                id="chatInput" 
+                placeholder="输入您的问题..." 
+                rows="1"
+                data-translate="chat-placeholder"
+            ></textarea>
+            <button class="send-message" id="sendMessage">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div> 

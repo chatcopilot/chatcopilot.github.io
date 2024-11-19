@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人网站</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="/">Li's Refueling Station</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="home">首页</a></li>
+                <li><a href="insights.html" data-translate="insights">知识与洞见</a></li>
+                <li><a href="recommendations.html" data-translate="recommendations">好文推荐</a></li>
+                <li class="language-selector">
+                    <a href="#" class="language-toggle">
+                        <i class="fas fa-globe"></i>
+                        <span data-translate="language">选择语言</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="language-dropdown">
+                        <li><a href="#" data-lang="zh-CN">简体中文</a></li>
+                        <li><a href="#" data-lang="en">English</a></li>
+                        <li><a href="#" data-lang="ar">العربية</a></li>
+                        <li><a href="#" data-lang="ja">日本語</a></li>
+                        <li><a href="#" data-lang="ko">한국어</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主视觉区优化 -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="welcome-banner">
+                <h1 data-translate="welcome">欢迎来到我的小破站</h1>
+                <p data-translate="welcome-subtitle">在这里，我分享知识与见解，连接思想与灵感</p>
+            </div>
+            <div class="profile-section">
+                <div class="profile-avatar">
+                    <img src="images/li-profile.jpg" alt="李国刚的照片" onerror="this.src='https://via.placeholder.com/200x200?text=李'">
+                </div>
+                <div class="profile-info">
+                    <h2>关于我</h2>
+                    <p class="about-text">我的本职工作是一名电力通信及自动化专业的高级工程师，也短暂从事过新能源项目市场开发工作，热衷于探索新技术和分享知识。在这里，我会分享我的学习心得、技术见解和一些有趣的发现。</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区优化 -->
+    <main class="main-content">
+        <div class="container">
+            <section class="featured-content">
+                <h2 class="section-title" data-translate="featured">精选内容</h2>
+                <div class="content-grid">
+                    <article class="feature-card primary">
+                        <div class="card-image">
+                            <img src="images/rec4.jpg" alt="虚拟电厂" onerror="this.src='https://via.placeholder.com/400x300?text=Image+Not+Found'">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">技术前沿</span>
+                            <h3>虚拟电厂在中国的发展</h3>
+                            <p>深入解析虚拟电厂技术在中国能源转型中的关键作用...</p>
+                            <a href="pdfs/VPP's developments in China.pdf" class="read-more" download>
+                                下载PDF <i class="fas fa-download"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <div class="secondary-features">
+                        <article class="feature-card secondary">
+                            <div class="card-content">
+                                <span class="card-tag">新能源</span>
+                                <h3>储能六大核心环节</h3>
+                                <p>国内电化学储能产业链深度分析...</p>
+                                <a href="https://ner.jgvogel.cn/c/1454/1454020.shtml" class="read-more" target="_blank">
+                                    阅读全文 <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                        <article class="feature-card secondary">
+                            <div class="card-content">
+                                <span class="card-tag">研究报告</span>
+                                <h3>固态电池技术全方位解读</h3>
+                                <p>下一代电池技术的突破与展望...</p>
+                                <a href="https://ner.jgvogel.cn/c/1387/1387655.shtml" class="read-more" target="_blank">
+                                    阅读全文 <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="latest-insights">
+                <h2 class="section-title" data-translate="latest-insights">最新洞见</h2>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>能源互联网发展趋势</h3>
+                        <p>探讨能源互联网的最新发展方向和未来机遇...</p>
+                    </div>
+                    <!-- 添加更多洞见卡片 -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright">
+                © 2024 李国刚|版权所有
+            </div>
+            <div class="social-links">
+                <a href="tencent://message/?uin=375991986" class="social-link" title="QQ: 375991986">
+                    <i class="fab fa-qq"></i>
+                    <span>QQ</span>
+                </a>
+                <a href="mailto:liguogang@hotmail.com" class="social-link" title="Email: liguogang@hotmail.com">
+                    <i class="fas fa-envelope"></i>
+                    <span>E-mail</span>
+                </a>
+                <a href="https://wa.me/201273171981" class="social-link" title="Whatsapp: +20 1273171981">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Whatsapp</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 脚本引用 -->
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/language.js"></script>
+    <script src="scripts/load-components.js"></script>
+    <script src="scripts/chat.js"></script>
+    <script src="scripts/articles.js"></script>
+</body>
+</html> 

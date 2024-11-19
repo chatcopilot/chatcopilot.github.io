@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好文推荐 - Li's Refueling Station</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="/">Li's Refueling Station</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="home">首页</a></li>
+                <li><a href="insights.html" data-translate="insights">知识与洞见</a></li>
+                <li><a href="recommendations.html" data-translate="recommendations">好文推荐</a></li>
+                <li class="language-selector">
+                    <a href="#" class="language-toggle">
+                        <i class="fas fa-globe"></i>
+                        <span data-translate="language">选择语言</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="language-dropdown">
+                        <li><a href="#" data-lang="zh-CN" class="active">简体中文</a></li>
+                        <li><a href="#" data-lang="en">English</a></li>
+                        <li><a href="#" data-lang="ar">العربية</a></li>
+                        <li><a href="#" data-lang="ja">日本語</a></li>
+                        <li><a href="#" data-lang="ko">한국어</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
+    <header class="page-header">
+        <div class="container">
+            <h1 data-translate="recommendations-title">精选好文推荐</h1>
+            <p data-translate="recommendations-subtitle">发现值得阅读的优质内容</p>
+            <div class="header-search">
+                <input type="text" id="articleSearch" placeholder="搜索文章..." class="search-input">
+                <button class="search-btn" onclick="searchArticles()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 文章列表 -->
+            <div class="article-list">
+                <!-- 文章列表将由 JavaScript 动态生成 -->
+            </div>
+
+            <!-- 加载更多按钮 -->
+            <div class="load-more">
+                <button class="load-more-btn">
+                    <i class="fas fa-sync-alt"></i> 加载更多
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright">
+                © 2024 李国刚|版权所有
+            </div>
+            <div class="social-links">
+                <a href="tencent://message/?uin=375991986" class="social-link" title="QQ: 375991986">
+                    <i class="fab fa-qq"></i>
+                    <span>QQ</span>
+                </a>
+                <a href="mailto:liguogang@hotmail.com" class="social-link" title="Email: liguogang@hotmail.com">
+                    <i class="fas fa-envelope"></i>
+                    <span>E-mail</span>
+                </a>
+                <a href="https://wa.me/201273171981" class="social-link" title="Whatsapp: +20 1273171981">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Whatsapp</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 脚本引用 -->
+    <script src="scripts/load-components.js"></script>
+    <script src="scripts/articles.js"></script>
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/language.js"></script>
+    <script src="scripts/chat.js"></script>
+</body>
+</html> 
