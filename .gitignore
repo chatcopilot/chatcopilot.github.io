@@ -1,6 +1,3 @@
-# 环境变量文件
-.env
-
 # Node.js 依赖目录
 node_modules/
 
