@@ -56,7 +56,7 @@ function initChatWidget() {
         // 显示加载状态
         const loadingMessage = addMessage('bot', '<i class="fas fa-spinner fa-spin"></i> AI正在思考...');
 
-        const url = process.env.NODE_ENV !== 'production'  ?     'http://localhost:3000/api/chat' : 'https://www.chatsmart.fun/api/chat'
+        const url =  'https://www.chatsmart.fun/api/chat'
 
         try {
             const response = await fetch(url, {
