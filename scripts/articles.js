@@ -35,12 +35,12 @@ const articlesData = {
         },
         {
             id: 'rec3',
-            title: '2024年电池技术白皮书',
-            excerpt: '这份白皮书详细介绍了2024年电池技术的最新发展趋势，包括固态电池、钠离子电池等新型电池技术的研究进展...',
-            date: '2024-03-21',
+            title: '固态锂电池技术发展白皮书',
+            excerpt: '这份白皮书详细介绍了半固态电池、全固态电池技术，以及国内外固态电池技术发展路线图...',
+            date: '2025-01-26',
             category: '技术文档',
-            url: 'pdfs/battery-technology-2024.pdf',
-            fileInfo: '2.5 MB',
+            url: 'pdfs/White Paper on Solid State Lithium Battery Technology Development 2024.pdf',
+            fileInfo: '10.1 MB',
             type: 'pdf',
             featured: false
         }
