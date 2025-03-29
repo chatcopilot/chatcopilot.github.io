@@ -56,10 +56,21 @@ function initChatWidget() {
         // 显示加载状态
         const loadingMessage = addMessage('bot', '<i class="fas fa-spinner fa-spin"></i> AI正在思考...');
 
-        const url =  'https://chatsmart.fun/api/chat'
+        const chatUrl = 'https://chatsmart.fun/api/chat';
+        const logUrl = 'http://your-server-ip:3000/api/log';
 
         try {
-            const response = await fetch(url, {
+            // 记录用户信息和问题
+            const userInfo = {
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                ipAddress: await fetch('https://api.ipify.org?format=json').then(res => res.json()).then(data => data.ip),
+                page: window.location.href,
+                question: message
+            };
+
+            // 发送聊天请求
+            const chatResponse = await fetch(chatUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,9 +81,21 @@ function initChatWidget() {
                 })
             });
 
-            const data = await response.json();
+            const data = await chatResponse.json();
 
             if (data.success) {
+                // 记录AI回答
+                userInfo.answer = data.reply;
+                
+                // 发送日志
+                fetch(logUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userInfo)
+                }).catch(error => console.error('Logging error:', error));
+
                 // 更新聊天历史
                 chatHistory.push(
                     { role: "user", content: message },

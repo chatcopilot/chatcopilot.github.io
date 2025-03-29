@@ -3,6 +3,10 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const path = require('path');
+const connectDB = require('./config/db');
+
+// 连接数据库
+connectDB();
 
 const app = express();
 
@@ -93,6 +97,59 @@ app.post('/api/chat', async (req, res) => {
     }
 });
 
+// 路由
+app.use('/api/log', require('./routes/logs'));
+
+// 简单的前端页面用于查看日志
+app.get('/', (req, res) => {
+    res.send(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>聊天日志</title>
+            <style>
+                table { border-collapse: collapse; width: 100%; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f2f2f2; }
+            </style>
+        </head>
+        <body>
+            <h1>聊天日志</h1>
+            <table id="logTable">
+                <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>IP地址</th>
+                        <th>页面</th>
+                        <th>问题</th>
+                        <th>回答</th>
+                    </tr>
+                </thead>
+                <tbody id="logBody"></tbody>
+            </table>
+            <script>
+                fetch('/api/log')
+                    .then(res => res.json())
+                    .then(data => {
+                        const tbody = document.getElementById('logBody');
+                        data.data.forEach(log => {
+                            tbody.innerHTML += \`
+                                <tr>
+                                    <td>\${new Date(log.timestamp).toLocaleString()}</td>
+                                    <td>\${log.ipAddress}</td>
+                                    <td>\${log.page}</td>
+                                    <td>\${log.question}</td>
+                                    <td>\${log.answer}</td>
+                                </tr>
+                            \`;
+                        });
+                    });
+            </script>
+        </body>
+        </html>
+    `);
+});
+
 // 错误处理中间件
 app.use((err, req, res, next) => {
     console.error('Error:', err);
@@ -105,7 +162,7 @@ app.use((req, res) => {
     res.status(404).send('Not Found');
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 }); 
