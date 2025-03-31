@@ -164,4 +164,68 @@ document.addEventListener('DOMContentLoaded', function() {
     // 初始化语言
     setLanguage(currentLang);
     updateActiveLanguage();
+});
+
+class LanguageManager {
+    constructor() {
+        this.currentLang = localStorage.getItem('preferred-language') || 'zh-CN';
+        this.init();
+    }
+
+    init() {
+        // 初始化语言选择器事件
+        document.querySelectorAll('.language-dropdown a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = e.target.getAttribute('data-lang');
+                this.setLanguage(lang);
+            });
+        });
+
+        // 初始应用已保存的语言
+        this.applyLanguage(this.currentLang);
+    }
+
+    setLanguage(lang) {
+        this.currentLang = lang;
+        localStorage.setItem('preferred-language', lang);
+        this.applyLanguage(lang);
+    }
+
+    applyLanguage(lang) {
+        // 翻译所有带data-translate属性的元素
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (LANGUAGES[lang][key]) {
+                element.textContent = LANGUAGES[lang][key];
+            }
+        });
+
+        // 更新文章内容
+        this.updateArticleContent(lang);
+    }
+
+    updateArticleContent(lang) {
+        // 更新文章相关的按钮文本
+        document.querySelectorAll('.read-more').forEach(link => {
+            const icon = link.querySelector('i').outerHTML;
+            link.innerHTML = `${LANGUAGES[lang]['read-more']} ${icon}`;
+        });
+
+        document.querySelectorAll('.download-link').forEach(link => {
+            const icon = link.querySelector('i').outerHTML;
+            link.innerHTML = `${LANGUAGES[lang]['download-pdf']} ${icon}`;
+        });
+
+        // 如果存在"未找到结果"的提示，也进行翻译
+        const noResults = document.querySelector('.no-results');
+        if (noResults) {
+            noResults.textContent = LANGUAGES[lang]['no-results'];
+        }
+    }
+}
+
+// 页面加载完成后初始化语言管理器
+document.addEventListener('DOMContentLoaded', () => {
+    window.languageManager = new LanguageManager();
 }); 

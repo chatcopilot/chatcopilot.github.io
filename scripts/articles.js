@@ -75,6 +75,7 @@ const articlesData = {
 
     // 生成文章卡片HTML（推荐页面使用）
     generateRecommendationCard(article) {
+        const lang = localStorage.getItem('preferred-language') || 'zh-CN';
         return `
             <article class="article-card">
                 <div class="article-meta">
@@ -89,11 +90,11 @@ const articlesData = {
                 <div class="article-footer">
                     ${article.type === 'pdf' ? 
                         `<a href="${article.url}" class="download-pdf" download>
-                            <i class="fas fa-file-pdf"></i> 下载PDF
+                            <i class="fas fa-file-pdf"></i> ${translations[lang]['download-pdf']}
                             ${article.fileInfo ? `<span class="file-info">(${article.fileInfo})</span>` : ''}
                         </a>` :
                         `<a href="${article.url}" class="read-more" target="_blank">
-                            阅读全文 <i class="fas fa-arrow-right"></i>
+                            ${translations[lang]['read-more']} <i class="fas fa-arrow-right"></i>
                         </a>`
                     }
                 </div>
